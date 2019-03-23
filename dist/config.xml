@@ -1,0 +1,17 @@
+<?xml version="1.0"?>
+<Config>
+ <ServerIP>10.16.xx.xx</ServerIP>
+ <UserID>cc</UserID>
+ <Passwd>xxx</Passwd>
+ <LogBackupDay>10</LogBackupDay>
+ <UploadCheck>TRUE</UploadCheck>
+ <Loop_Sec>30</Loop_Sec>
+ <LocalDirectory>C:\Users\Administrator\Desktop\TEST\</LocalDirectory>
+ <RemoteDirectory>/DATA/AOI/T1TEST200/</RemoteDirectory>
+ <FileExtension>csv</FileExtension>
+ <FileNameContain>*</FileNameContain>
+ <SubDirectoryCheck>TRUE</SubDirectoryCheck>
+ <SubDirectoryCreateCheck>FALSE</SubDirectoryCreateCheck>
+ <LocalFileBackupCheck>TRUE</LocalFileBackupCheck>
+ <FileCreateTime>80</FileCreateTime>
+</Config>
