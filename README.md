@@ -2,8 +2,6 @@
 
 A ftp program auto to upload file by time.
 
-
-
 ## Python - FtpLib模块应用
 
 > 工厂中有这样的应用场景: 需要不间断地把设备电脑生成的数据文件上传到远程文件存储服务器NAS中。
@@ -26,25 +24,24 @@ A ftp program auto to upload file by time.
 
 ## 1.config.xml文件设置
 
-```jsx
-
-
-  10.12.x.x
-  user1
-  123456
-
-  10
-  TRUE
-  30
-  D:\000\Desktop\TEST\
-  /DATA/TEST/
-  *
-  *    
-
-  TRUE
-  TRUE
-  TRUE
-  24
+```
+<?xml version="1.0"?>
+<Config>
+ <ServerIP>10.16.xx.xx</ServerIP>
+ <UserID>cc</UserID>
+ <Passwd>xxx</Passwd>
+ <LogBackupDay>10</LogBackupDay>
+ <UploadCheck>TRUE</UploadCheck>
+ <Loop_Sec>30</Loop_Sec>
+ <LocalDirectory>C:\Users\Administrator\Desktop\TEST\</LocalDirectory>
+ <RemoteDirectory>/DATA/AOI/T1TEST200/</RemoteDirectory>
+ <FileExtension>csv</FileExtension>
+ <FileNameContain>*</FileNameContain>
+ <SubDirectoryCheck>TRUE</SubDirectoryCheck>
+ <SubDirectoryCreateCheck>FALSE</SubDirectoryCreateCheck>
+ <LocalFileBackupCheck>TRUE</LocalFileBackupCheck>
+ <FileCreateTime>80</FileCreateTime>
+</Config>
 ```
 
 - **LogBackupDay** 日志保留天数
