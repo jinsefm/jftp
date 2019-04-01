@@ -144,7 +144,10 @@ def checkFileNameContains(localfile,filecontain):
 ```python
 def checkFileModifiedTime(localfile,hour):
     '''只上传创建时间为hour小时内的文件'''
-    if os.stat(localfile).st_ctime
+    if os.stat(localfile).st_ctime<time.time()-hour*3600:
+        return False
+    else:
+        return True
 ```
 
 - **生成日志，日志文件保留多久**
@@ -173,7 +176,8 @@ def deleteLog(days):
     '''删除多少天之前的日志文件'''
     for file2 in os.listdir(log_path):
         logfile=os.path.join(log_path,file2)
-        if os.stat(logfile).st_ctime
+        if os.stat(logfile).st_ctime<time.time()-days*24*3600:
+            os.remove(logfile)
 ```
 
 - **展开子文件夹及相关判断逻辑**
