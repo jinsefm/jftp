@@ -13,26 +13,27 @@ import ftplib
 import os
 import time
 import logging
+import logging.handlers
 from xml.dom.minidom import parse
 
 
 
 #创建logger日志
 logger = logging.getLogger()
-logger.setLevel(logging.INFO)
-#filehandler
-rq = time.strftime('%Y%m%d', time.localtime(time.time()))
-log_path = os.getcwd()+os.sep + 'Logs'+os.sep
-if not os.path.exists(log_path):
-    os.mkdir(log_path)
-log_name = log_path + rq + '.log'
-logfile = log_name
-fh = logging.FileHandler(logfile, mode='w')
-fh.setLevel(logging.DEBUG)
-#filehandler输出格式
-formatter = logging.Formatter("%(asctime)s - %(filename)s[line:%(lineno)d] - %(levelname)s: %(message)s")
-fh.setFormatter(formatter)
-logger.addHandler(fh)
+logger.setLevel(logging.DEBUG)
+
+#Log Path
+logpath = os.getcwd()+os.sep + 'Logs'+os.sep
+if not os.path.exists(logpath):
+    os.mkdir(logpath)    
+logfile = logpath + 'jftplog'
+
+#LOG FORMAT
+LOG_FORMAT="%(asctime)s - %(filename)s[line:%(lineno)d] - %(levelname)s: %(message)s"
+log_handler=logging.handlers.TimedRotatingFileHandler(logfile,'D',1,15)
+log_handler.suffix="_%Y%m%d.log"
+log_handler.setFormatter(logging.Formatter(LOG_FORMAT))
+logger.addHandler(log_handler)
 
 
 
