@@ -169,7 +169,8 @@ def deleteLog(days):
     '''删除多少天之前的日志文件'''
     for file2 in os.listdir(log_path):
         logfile=os.path.join(log_path,file2)
-        if os.stat(logfile).st_ctime<time.time()-days*24*3600:
+        if os.stat(logfile).st_mtime<time.time()-days*24*3600:
+            logger.info("Remove log file:{}".format(logfile))
             os.remove(logfile)
 
             
